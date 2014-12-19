@@ -7,4 +7,7 @@ html = response.content
 
 soup = BeautifulSoup(html)
 table = soup.find('table', attrs={'class': 'resultsTable'})
-print table.prettify()
+
+for row in table.findAll('tr'):
+	for cell in row.findAll('td'):
+		print cell.text
